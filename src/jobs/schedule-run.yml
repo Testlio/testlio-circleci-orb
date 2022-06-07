@@ -1,0 +1,17 @@
+description: >
+  Clone test project and schedule e2e automated run on Testlio platform.
+
+executor: default
+
+parameters:
+  dir:
+    type: string
+    description: "Project directory"
+  token:
+    type: string
+    description: "Testlio Run API token"
+steps:
+  - install
+  - create-run:
+      dir: << parameters.dir >>
+      token: << parameters.token >>

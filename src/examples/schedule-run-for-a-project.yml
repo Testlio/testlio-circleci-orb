@@ -1,0 +1,12 @@
+description: >
+  Schedule e2e automated run on Testlio platform for a given project.
+usage:
+  version: 2.1
+  orbs:
+    testlio: testlio/testlio@1.0.0
+  workflows:
+    schedule-run-for-a-project:
+      jobs:
+        - testlio/create-run:
+            dir: "test_package"
+            token: "Testlio Run API token"

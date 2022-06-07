@@ -1,0 +1,7 @@
+description: >
+  This command installs Testlio CLI.
+steps:
+  - run:
+      name: Install Testlio CLI
+      command: |
+        npm install -g @testlio/cli

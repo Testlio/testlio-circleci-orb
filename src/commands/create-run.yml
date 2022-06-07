@@ -1,0 +1,16 @@
+description: >
+  This command creates e2e automated run on Testlio platform.
+parameters:
+  dir:
+    type: string
+    description: "Project directory"
+  token:
+    type: string
+    description: "Testlio Run API token"
+steps:
+  - run:
+      name: Schedule Automated Run
+      environment:
+        RUN_API_TOKEN: << parameters.token >>
+        PROJECT_DIR: << parameters.dir >>
+      command: << include(scripts/create-run.sh) >>
