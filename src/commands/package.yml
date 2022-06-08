@@ -3,11 +3,13 @@ description: >
 parameters:
   dir:
     type: string
-    description: "Select the path to test project sources."
+    description: |
+      Select the path to test project sources.
   filename:
     type: string
     default: "test_package.zip"
-    description: "Select the output package file name (default: test_package.zip)."
+    description: |
+      Select the output package file name. Default is "test_package.zip".
 steps:
   - run:
       name: Creating a test package
