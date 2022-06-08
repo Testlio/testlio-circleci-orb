@@ -8,8 +8,6 @@ filters: &filters
     only: /.*/
 
 jobs:
-  # Create a job to test the commands of your orbs.
-  # You may want to add additional validation steps to ensure the commands are working as expected.
   schedule-run-for-a-project:
     docker:
       - image: cimg/base:current
@@ -30,7 +28,6 @@ jobs:
 workflows:
   test-deploy:
     jobs:
-      # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - schedule-run-for-a-project:
           filters: *filters
       - orb-tools/pack:
@@ -41,7 +38,7 @@ workflows:
           pub-type: production
           requires:
             - orb-tools/pack
-            - command-tests
+            - schedule-run-for-a-project
           context: <publishing-context>
           filters:
             branches:
