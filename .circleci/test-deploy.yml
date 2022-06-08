@@ -19,7 +19,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - testlio-platform-automation-main
+            - testlio-platform-automation-main/*
 workflows:
   test-deploy:
     jobs:

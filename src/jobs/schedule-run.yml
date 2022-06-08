@@ -23,7 +23,9 @@ steps:
       condition: << parameters.attach-workspace >>
       steps:
         - attach_workspace:
-            at: ~/
+            at: ./
+  - run:
+      command: "ls"
   - install
   - package:
       dir: << parameters.dir >>

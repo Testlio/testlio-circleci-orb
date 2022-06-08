@@ -10,7 +10,7 @@ parameters:
     description: "Select the output package file name (default: test_package.zip)."
 steps:
   - run:
-      name: Create a test package
+      name: Creating a test package
       environment:
         PROJECT_DIR: << parameters.dir >>
         PACKAGE_NAME: << parameters.filename >>
