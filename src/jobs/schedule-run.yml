@@ -22,8 +22,8 @@ steps:
   - when:
       condition: << parameters.attach-workspace >>
       steps:
-        — attach_workspace:
-          at: ~/
+        - attach_workspace:
+            at: ~/
   - install
   - package:
       dir: << parameters.dir >>
