@@ -1,7 +1,7 @@
 version: 2.1
 
 description: >
-  CI/CD integration with Testlio platform
+  Create automated Testlio runs in your CI pipeline with the Testlio CLI orb integration.
 
 display:
   home_url: "https://help.testlio.com"
