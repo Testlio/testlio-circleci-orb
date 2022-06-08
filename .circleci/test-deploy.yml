@@ -10,7 +10,7 @@ filters: &filters
 jobs:
   schedule-run-for-a-project:
     docker:
-      - image: cimg/base:current
+      - image: cimg/node:lts
     steps:
       - checkout
       - run:
