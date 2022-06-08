@@ -15,6 +15,7 @@ parameters:
       Enter the name of the environment variable containing the Testlio Run API token to be used for authentication.
 steps:
   - install
-  - create-run:
+  - package:
       dir: << parameters.dir >>
+  - create-run:
       token: << parameters.token >>

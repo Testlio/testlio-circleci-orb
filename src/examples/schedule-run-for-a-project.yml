@@ -7,7 +7,6 @@ usage:
   workflows:
     schedule-run-for-a-project:
       jobs:
-        - testlio/install
-        - testlio/create-run:
+        - testlio/schedule-run:
             dir: "test-project"
             token: "TESTLIO_RUN_API_TOKEN"

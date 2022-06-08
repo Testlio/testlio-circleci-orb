@@ -1,0 +1,55 @@
+{
+    "extends": [
+        "airbnb-base",
+        "plugin:prettier/recommended",
+        "prettier",
+        "plugin:mocha/recommended"
+    ],
+    "env": {
+        "node": true,
+        "mocha": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "mocha",
+        "webdriverio"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".ts", ".json", ".js"]
+            }
+        }
+    },
+    "rules": {
+        "no-await-in-loop": "off",
+        "import/prefer-default-export": "off",
+        "import/extensions": [
+            "error",
+            {
+                "*": "never",
+                "json": "always"
+            }
+        ],
+        "no-shadow": "off",
+        "no-undef": "off",
+        // TODO Investigate if we can make classes properly static
+        "class-methods-use-this": "off",
+        "mocha/no-mocha-arrows": "off",
+        "@typescript-eslint/no-shadow": ["error"]
+    },
+    "overrides": [
+        {
+            "files": [
+                "**/*.ts"
+            ],
+            "rules": {
+                "@typescript-eslint/no-unused-vars": "error"
+            }
+        }
+    ]
+}

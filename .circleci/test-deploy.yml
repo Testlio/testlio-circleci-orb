@@ -8,7 +8,7 @@ filters: &filters
     only: /.*/
 
 jobs:
-  schedule-run-for-a-project:
+  unzip-sample-test-project:
     docker:
       - image: cimg/node:lts
     steps:
@@ -17,15 +17,15 @@ jobs:
           name: Unzip Sample Test Project
           command: |
             unzip testlio-platform-automation-main.zip
-      - testlio/install
-      - testlio/create-run:
-          dir: "testlio-platform-automation-main"
-          token: "RUN_API_TOKEN_STAGING"
 workflows:
   test-deploy:
     jobs:
-      - schedule-run-for-a-project:
+      - unzip-sample-test-project:
           filters: *filters
+      - testlio/schedule-run:
+          filters: *filters
+          dir: "testlio-platform-automation-main"
+          token: "RUN_API_TOKEN_STAGING"
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -34,7 +34,7 @@ workflows:
           pub-type: production
           requires:
             - orb-tools/pack
-            - schedule-run-for-a-project
+            - unzip-sample-test-project
           context: orb-publishing
           filters:
             branches:

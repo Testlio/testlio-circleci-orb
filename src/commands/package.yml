@@ -1,0 +1,17 @@
+description: >
+  This command packaging the test project.
+parameters:
+  dir:
+    type: string
+    description: "Select the path to test project sources."
+  name:
+    type: string
+    default: "test_package.zip"
+    description: "Select the output package name (default: test_package.zip)."
+steps:
+  - run:
+      name: Create a test package
+      environment:
+        PROJECT_DIR: << parameters.dir >>
+        PACKAGE_NAME: << parameters.name >>
+      command: << include(scripts/package.sh) >>

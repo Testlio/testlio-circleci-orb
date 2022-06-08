@@ -3,5 +3,4 @@ description: >
 steps:
   - run:
       name: Install Testlio CLI
-      command: |
-        npm install -g @testlio/cli
+      command: "npm install -g @testlio/cli"
