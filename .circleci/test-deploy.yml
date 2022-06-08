@@ -30,7 +30,7 @@ workflows:
           requires:
             - unzip-sample-test-project
           attach-workspace: true
-          token: "RUN_API_TOKEN_STAGING"
+          # token: "RUN_API_TOKEN_STAGING"
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:

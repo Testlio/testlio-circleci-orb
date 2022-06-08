@@ -23,7 +23,7 @@ parameters:
       Specify path to the project config JSON file. Default is "./project-config.json".
 steps:
   - run:
-      name: Schedule automated run
+      name: Scheduling automated run
       environment:
         RUN_API_TOKEN_ENV_NAME: << parameters.token >>
         PROJECT_DIR: << parameters.dir >>
