@@ -3,14 +3,16 @@ description: >
 parameters:
   dir:
     type: string
-    description: "Project directory"
+    description: "Select the path to test project sources."
   token:
     type: string
-    description: "Testlio Run API token"
+    default: "TESTLIO_RUN_API_TOKEN"
+    description: |
+      Enter the name of the environment variable containing the Testlio Run API token to be used for authentication.
 steps:
   - run:
       name: Schedule Automated Run
       environment:
-        RUN_API_TOKEN: << parameters.token >>
+        RUN_API_TOKEN_ENV_NAME: << parameters.token >>
         PROJECT_DIR: << parameters.dir >>
       command: << include(scripts/create-run.sh) >>

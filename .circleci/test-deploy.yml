@@ -20,7 +20,7 @@ jobs:
       - testlio/install
       - testlio/create-run:
           dir: "testlio-platform-automation-main"
-          token: ${RUN_API_TOKEN_STAGING}
+          token: "RUN_API_TOKEN_STAGING"
 workflows:
   test-deploy:
     jobs:
