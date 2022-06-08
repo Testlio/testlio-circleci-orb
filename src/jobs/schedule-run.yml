@@ -40,5 +40,6 @@ steps:
       dir: << parameters.dir >>
   - create-run:
       dir: << parameters.dir >>
+      token: << parameters.token >>
       test-config: << parameters.test-config >>
       project-config: << parameters.project-config >>

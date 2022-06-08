@@ -1,16 +1,16 @@
 description: >
   This command creates e2e automated run on Testlio platform.
 parameters:
-  token:
-    type: string
-    default: "TESTLIO_RUN_API_TOKEN"
-    description: |
-      Enter the name of the environment variable containing the Testlio Run API token to be used for authentication.
   dir:
     type: string
     default: "."
     description: |
       Select the path to test project sources. Default is current directory.
+  token:
+    type: string
+    default: "TESTLIO_RUN_API_TOKEN"
+    description: |
+      Enter the name of the environment variable containing the Testlio Run API token to be used for authentication.
   test-config:
     type: string
     default: "./test-config.json"
