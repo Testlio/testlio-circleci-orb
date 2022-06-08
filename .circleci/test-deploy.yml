@@ -39,7 +39,7 @@ workflows:
           requires:
             - orb-tools/pack
             - schedule-run-for-a-project
-          context: <publishing-context>
+          context: orb-publishing
           filters:
             branches:
               ignore: /.*/
