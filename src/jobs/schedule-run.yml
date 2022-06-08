@@ -19,6 +19,16 @@ parameters:
     default: false
     description: |
       Boolean for whether or not to attach to an existing workspace. Default is false.
+  test-config:
+    type: string
+    default: "./test-config.json"
+    description: |
+      Specify path to the test config JSON file. Default is "./test-config.json".
+  project-config:
+    type: string
+    default: "./project-config.json"
+    description: |
+      Specify path to the project config JSON file. Default is "./project-config.json".
 steps:
   - when:
       condition: << parameters.attach-workspace >>
@@ -27,10 +37,9 @@ steps:
             at: ./
   - setup:
       token: << parameters.token >>
-  - run:
-      name: Navigate to the project directory
-      environmnent:
-        PROJECT_DIR: << parameters.dir >>
-      command: "cd ${PROJECT_DIR} || exit"
-  - package
-  - create-run
+  - package:
+      dir: << parameters.dir >>
+  - create-run:
+      dir: << parameters.dir >>
+      test-config: << parameters.test-config >>
+      project-config: << parameters.project-config >>

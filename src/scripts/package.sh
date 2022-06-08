@@ -1,2 +1,3 @@
 #!/bin/bash
-zip -r ${PACKAGE_PATH} ${PROJECT_DIR} -x "node_modules/*" "lib/script/*" ".git/*" ".circleci/*"
+cd ${PROJECT_DIR} || exit
+zip -r ${PACKAGE_PATH} . -x "node_modules/*" "lib/script/*" ".git/*" ".circleci/*"
