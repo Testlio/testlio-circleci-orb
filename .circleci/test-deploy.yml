@@ -24,6 +24,8 @@ workflows:
           filters: *filters
       - testlio/schedule-run:
           filters: *filters
+          requires:
+            - unzip-sample-test-project
           dir: "testlio-platform-automation-main"
           token: "RUN_API_TOKEN_STAGING"
       - orb-tools/pack:
@@ -35,6 +37,7 @@ workflows:
           requires:
             - orb-tools/pack
             - unzip-sample-test-project
+            - testlio/schedule-run
           context: orb-publishing
           filters:
             branches:

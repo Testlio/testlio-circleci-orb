@@ -1,8 +1,0 @@
-{
-  "baseURI": "https://api.testlio.net",
-  "platformURI": "https://app.testlio.net/tmt/project/",
-  "projectId": 5313,
-  "automatedRunCollectionGuid": "cb0282d4-c594-496a-a474-29eeef926c79",
-  "testRunCollectionGuid": "69ad9833-a976-4dd4-b262-c6e0287f40a9",
-  "workspaceName": "strawberries-ios"
-}
