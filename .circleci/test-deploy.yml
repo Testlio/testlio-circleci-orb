@@ -29,7 +29,7 @@ workflows:
           filters: *filters
           requires:
             - unzip-sample-test-project
-          attach_workspace: true
+          attach-workspace: true
           dir: "testlio-platform-automation-main"
           token: "RUN_API_TOKEN_STAGING"
       - orb-tools/pack:
