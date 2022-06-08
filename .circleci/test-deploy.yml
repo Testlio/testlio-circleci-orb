@@ -17,9 +17,9 @@ jobs:
           name: Unzip Sample Test Project
           command: "unzip testlio-platform-automation-main.zip"
       - persist_to_workspace:
-          root: .
+          root: ./testlio-platform-automation-main
           paths:
-            - testlio-platform-automation-main/*
+            - ./*
 workflows:
   test-deploy:
     jobs:
@@ -30,7 +30,6 @@ workflows:
           requires:
             - unzip-sample-test-project
           attach-workspace: true
-          dir: "testlio-platform-automation-main"
           token: "RUN_API_TOKEN_STAGING"
       - orb-tools/pack:
           filters: *filters

@@ -35,8 +35,7 @@ steps:
       steps:
         - attach_workspace:
             at: ./
-  - setup:
-      token: << parameters.token >>
+  - install
   - package:
       dir: << parameters.dir >>
   - create-run:
