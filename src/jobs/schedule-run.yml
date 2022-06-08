@@ -13,7 +13,17 @@ parameters:
     default: "TESTLIO_RUN_API_TOKEN"
     description: |
       Enter the name of the environment variable containing the Testlio Run API token to be used for authentication.
+  attach-workspace:
+    type: boolean
+    default: false
+    description: |
+      Boolean for whether or not to attach to an existing workspace. Default is false.
 steps:
+  - when:
+      condition: << parameters.attach-workspace >>
+      steps:
+        — attach_workspace:
+          at: ~/
   - install
   - package:
       dir: << parameters.dir >>
