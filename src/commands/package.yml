@@ -4,14 +4,14 @@ parameters:
   dir:
     type: string
     description: "Select the path to test project sources."
-  name:
+  filename:
     type: string
     default: "test_package.zip"
-    description: "Select the output package name (default: test_package.zip)."
+    description: "Select the output package file name (default: test_package.zip)."
 steps:
   - run:
       name: Create a test package
       environment:
         PROJECT_DIR: << parameters.dir >>
-        PACKAGE_NAME: << parameters.name >>
+        PACKAGE_NAME: << parameters.filename >>
       command: << include(scripts/package.sh) >>
