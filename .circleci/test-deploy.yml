@@ -7,11 +7,33 @@ filters: &filters
   tags:
     only: /.*/
 
+jobs:
+  create-dummy-configs:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - run:
+          name: Create dummy test-config.json
+          command: "touch test-config.json"
+      - run:
+          name: Create dummy project-config.json
+          command: "touch project-config.json"
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./test-config.json
+            - ./project-config.json
+
 workflows:
   test-deploy:
     jobs:
+      - create-dummy-configs:
+          filters: *filters
       - testlio/schedule-run:
           filters: *filters
+          requires:
+            - create-dummy-configs
+          attach-workspace: true
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -20,6 +42,7 @@ workflows:
           pub-type: production
           requires:
             - orb-tools/pack
+            - create-dummy-configs
             - testlio/schedule-run
           context: orb-publishing
           filters:
