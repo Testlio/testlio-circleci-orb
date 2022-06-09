@@ -4,5 +4,5 @@ description: >
   Create automated Testlio runs in your CI pipeline with the Testlio CLI orb integration.
 
 display:
-  home_url: "https://help.testlio.com"
+  home_url: "https://testlio.com"
   source_url: "https://github.com/Testlio/testlio-circleci-orb"
