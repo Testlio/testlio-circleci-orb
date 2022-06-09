@@ -8,7 +8,7 @@ Create automated Testlio runs in your CI pipeline with the Testlio CLI orb integ
 
 ### Setup
 
-In order to use the Testlio Orb on CircleCI you will need to create and provide Run API token. Please contact Testlio support to find out how to obtain it.
+In order to use the Testlio Orb on CircleCI you will need to create and provide Run API token. To find out how to obtain it, check [How to create an automated run with API](https://help.testlio.com/en/articles/5898210-how-to-create-an-automated-run-with-api)
 
 ### Config
 
