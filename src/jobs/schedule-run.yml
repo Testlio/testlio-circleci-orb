@@ -4,11 +4,6 @@ description: >
 executor: default
 
 parameters:
-  dir:
-    type: string
-    default: "."
-    description: |
-      Select the path to test project sources. Default is current directory.
   token:
     type: string
     default: "TESTLIO_RUN_API_TOKEN"
@@ -36,10 +31,7 @@ steps:
         - attach_workspace:
             at: ./
   - install
-  - package:
-      dir: << parameters.dir >>
   - create-run:
-      dir: << parameters.dir >>
       token: << parameters.token >>
       test-config: << parameters.test-config >>
       project-config: << parameters.project-config >>

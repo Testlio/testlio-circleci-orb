@@ -1,11 +1,6 @@
 description: >
   This command creates e2e automated run on Testlio platform.
 parameters:
-  dir:
-    type: string
-    default: "."
-    description: |
-      Select the path to test project sources. Default is current directory.
   token:
     type: string
     default: "TESTLIO_RUN_API_TOKEN"
@@ -26,7 +21,6 @@ steps:
       name: Scheduling automated run
       environment:
         RUN_API_TOKEN_ENV_NAME: << parameters.token >>
-        PROJECT_DIR: << parameters.dir >>
         TEST_CONFIG_PATH: << parameters.test-config >>
         PROJECT_CONFIG_PATH: << parameters.project-config >>
       command: << include(scripts/create-run.sh) >>

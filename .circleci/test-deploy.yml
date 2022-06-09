@@ -7,30 +7,11 @@ filters: &filters
   tags:
     only: /.*/
 
-jobs:
-  unzip-sample-test-project:
-    docker:
-      - image: cimg/node:lts
-    steps:
-      - checkout
-      - run:
-          name: Unzip Sample Test Project
-          command: "unzip testlio-platform-automation-main.zip"
-      - persist_to_workspace:
-          root: ./testlio-platform-automation-main
-          paths:
-            - ./*
 workflows:
   test-deploy:
     jobs:
-      - unzip-sample-test-project:
-          filters: *filters
       - testlio/schedule-run:
           filters: *filters
-          requires:
-            - unzip-sample-test-project
-          attach-workspace: true
-          token: "RUN_API_TOKEN_STAGING"
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
