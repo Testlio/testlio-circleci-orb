@@ -1,0 +1,37 @@
+description: >
+  Clone test project and schedule e2e automated run on Testlio platform.
+
+executor: default
+
+parameters:
+  token:
+    type: string
+    default: "TESTLIO_RUN_API_TOKEN"
+    description: |
+      Enter the name of the environment variable containing the Testlio Run API token to be used for authentication. Default is "TESTLIO_RUN_API_TOKEN".
+  attach-workspace:
+    type: boolean
+    default: false
+    description: |
+      Boolean for whether or not to attach to an existing workspace. Default is false.
+  test-config:
+    type: string
+    default: "./test-config.json"
+    description: |
+      Specify path to the test config JSON file. Default is "./test-config.json".
+  project-config:
+    type: string
+    default: "./project-config.json"
+    description: |
+      Specify path to the project config JSON file. Default is "./project-config.json".
+steps:
+  - when:
+      condition: << parameters.attach-workspace >>
+      steps:
+        - attach_workspace:
+            at: ./
+  - install
+  - create-run:
+      token: << parameters.token >>
+      test-config: << parameters.test-config >>
+      project-config: << parameters.project-config >>

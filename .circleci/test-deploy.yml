@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  <orb-name>: <namespace>/<orb-name>@dev:<<pipeline.git.revision>>
+  testlio: testlio/testlio@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.1
 
 filters: &filters
@@ -8,31 +8,43 @@ filters: &filters
     only: /.*/
 
 jobs:
-  # Create a job to test the commands of your orbs.
-  # You may want to add additional validation steps to ensure the commands are working as expected.
-  command-tests:
+  create-dummy-configs:
     docker:
-      - image: cimg/base:current
+      - image: cimg/node:lts
     steps:
-      - checkout
-      # Run your orb's commands to validate them.
-      - <orb-name>/greet
+      - run:
+          name: Create dummy test-config.json
+          command: "touch test-config.json"
+      - run:
+          name: Create dummy project-config.json
+          command: "touch project-config.json"
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./test-config.json
+            - ./project-config.json
+
 workflows:
   test-deploy:
     jobs:
-      # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - command-tests:
+      - create-dummy-configs:
           filters: *filters
+      - testlio/schedule-run:
+          filters: *filters
+          requires:
+            - create-dummy-configs
+          attach-workspace: true
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
-          orb-name: <namespace>/<orb-name>
+          orb-name: testlio/testlio
           vcs-type: << pipeline.project.type >>
           pub-type: production
           requires:
             - orb-tools/pack
-            - command-tests
-          context: <publishing-context>
+            - create-dummy-configs
+            - testlio/schedule-run
+          context: orb-publishing
           filters:
             branches:
               ignore: /.*/

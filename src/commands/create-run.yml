@@ -1,0 +1,26 @@
+description: >
+  This command creates e2e automated run on Testlio platform.
+parameters:
+  token:
+    type: string
+    default: "TESTLIO_RUN_API_TOKEN"
+    description: |
+      Enter the name of the environment variable containing the Testlio Run API token to be used for authentication.
+  test-config:
+    type: string
+    default: "./test-config.json"
+    description: |
+      Specify path to the test config JSON file. Default is "./test-config.json".
+  project-config:
+    type: string
+    default: "./project-config.json"
+    description: |
+      Specify path to the project config JSON file. Default is "./project-config.json".
+steps:
+  - run:
+      name: Scheduling automated run
+      environment:
+        RUN_API_TOKEN_ENV_NAME: << parameters.token >>
+        TEST_CONFIG_PATH: << parameters.test-config >>
+        PROJECT_CONFIG_PATH: << parameters.project-config >>
+      command: << include(scripts/create-run.sh) >>
