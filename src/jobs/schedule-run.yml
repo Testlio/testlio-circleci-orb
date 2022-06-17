@@ -1,7 +1,8 @@
 description: >
-  Clone test project and schedule e2e automated run on Testlio platform.
+  Schedule functional tests via automated run on Testlio platform.
 
-executor: default
+docker:
+  - image: 'cimg/node:lts'
 
 parameters:
   token:
