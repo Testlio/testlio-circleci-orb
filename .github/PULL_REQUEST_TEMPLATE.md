@@ -1,26 +1,33 @@
-#### JIRA
-[TEAM-123](https://testlions.atlassian.net/browse/TEAM-123)
 
-#### Related PRs
-- none
+**SEMVER Update Type:**
+- [ ] Major
+- [ ] Minor
+- [ ] Patch
 
-#### Background and Solution
-Please describe the background and implementation of the feature or fix.
+## Description:
 
-#### Testing Strategy
-Please describe the tests that you ran to verify your changes. Provide instructions so it could be reproduced. Please also list any relevant details for your test configuration.
+<!---
+  Describe your changes in detail, preferably in an imperative mood,
+  i.e., "add `commandA` to `jobB`"
+ -->
 
-- Test A
-- Test B
+## Motivation:
 
-#### Are the Changes Covered With Tests?
-- [ ] Yes
-- [ ] No
+<!---
+  Share any open issues this PR references or otherwise describe the motivation to submit this pull request.
+ -->
 
-#### Does This Introduce a Breaking Change to the API?
-- [ ] Yes
-- [ ] No
+ **Closes Issues:**
+-  ISSUE URL
 
-#### Is the Documentation Updated/Provided?
-- [ ] Yes
-- [ ] No
+## Checklist:
+
+<!--
+	Thank you for contributing to CircleCI Orbs!
+	before submitting your a request, please go through the following
+	items and place an x in the [ ] if they have been completed
+-->
+
+- [ ] All new jobs, commands, executors, parameters have descriptions.
+- [ ] Usage Example version numbers have been updated.
+- [ ] Changelog has been updated.
