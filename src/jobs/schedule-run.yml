@@ -6,7 +6,7 @@ docker:
 
 parameters:
   token:
-    type: string
+    type: env_var_name
     default: "TESTLIO_RUN_API_TOKEN"
     description: |
       Enter the name of the environment variable containing the Testlio Run API token to be used for authentication. Default is "TESTLIO_RUN_API_TOKEN".
