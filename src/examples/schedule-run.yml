@@ -4,13 +4,11 @@ description: |
 usage:
   version: 2.1
   orbs:
-    testlio: testlio/testlio@1.0.0
+    testlio: testlio/testlio@1.0.1
   workflows:
     schedule-run:
       jobs:
         - testlio/schedule-run:
-            requires:
-              - fetch-functional-tests
             token: "TESTLIO_RUN_API_TOKEN"
             test-config: "./functional-tests-folder/test-config.json"
             project-config: "./functional-tests-folder/project-config.json"

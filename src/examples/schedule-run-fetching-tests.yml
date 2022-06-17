@@ -5,7 +5,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    testlio: testlio/testlio@1.0.0
+    testlio: testlio/testlio@1.0.1
   workflows:
     schedule-run-for-a-project:
       jobs:
