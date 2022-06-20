@@ -1,7 +1,7 @@
 description: >
   Schedule functional tests via automated run on Testlio platform.
-  In this example we are assuming that the tests are not part of the same codebase
-  and we need to get them from somewhere.
+  In this example, we are assuming that the tests are not part of the same codebase
+  and we need to get them from somewhere else.
 usage:
   version: 2.1
   orbs:
@@ -18,7 +18,10 @@ usage:
             test-config: "./functional-tests-folder/test-config.json"
             project-config: "./functional-tests-folder/project-config.json"
 
-  fetch-functional-tests:
+  jobs:
+    fetch-functional-tests:
+      docker:
+        - image: cimg/node:lts
       steps:
         - run:
             name: Fetch functional tests
