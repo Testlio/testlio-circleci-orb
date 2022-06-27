@@ -31,6 +31,10 @@ steps:
       steps:
         - attach_workspace:
             at: ./
+  - unless:
+      condition: << parameters.attach-workspace >>
+      steps:
+        - checkout
   - install
   - create-run:
       token: << parameters.token >>

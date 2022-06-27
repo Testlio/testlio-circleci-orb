@@ -8,7 +8,6 @@ usage:
   workflows:
     schedule-run:
       jobs:
-        - checkout
         - testlio/schedule-run:
             token: "TESTLIO_RUN_API_TOKEN"
             test-config: "./functional-tests-folder/test-config.json"
