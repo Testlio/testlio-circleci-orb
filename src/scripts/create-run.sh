@@ -8,4 +8,9 @@ set -o xtrace
 [ ! -f "${TEST_CONFIG_PATH}" ] && echo "Cannot find test config in ${TEST_CONFIG_PATH}." && exit
 
 export RUN_API_TOKEN=${!RUN_API_TOKEN_ENV_NAME}
-testlio create-run --projectConfig ${PROJECT_CONFIG_PATH} --testConfig ${TEST_CONFIG_PATH}
+
+if [ "$DRY_RUN" -eq 1 ] ; then
+    testlio create-run --dryRun --projectConfig ${PROJECT_CONFIG_PATH} --testConfig ${TEST_CONFIG_PATH}
+else
+    testlio create-run --projectConfig ${PROJECT_CONFIG_PATH} --testConfig ${TEST_CONFIG_PATH}
+fi

@@ -25,6 +25,10 @@ parameters:
     default: "./project-config.json"
     description: |
       Specify path to the project config JSON file. Default is "./project-config.json".
+  dryRun:
+    description: when true it runs configuration validations without creating run
+    type: boolean
+    default: false
 steps:
   - when:
       condition: << parameters.attach-workspace >>
@@ -37,6 +41,7 @@ steps:
         - checkout
   - install
   - create-run:
+      dryRun: << parameters.dryRun >>
       token: << parameters.token >>
       test-config: << parameters.test-config >>
       project-config: << parameters.project-config >>
