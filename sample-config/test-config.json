@@ -1,0 +1,18 @@
+{
+  "automatedTestNamePrefix": "Prefix:",
+  "config": {
+    "deviceAppType": "WEB",
+    "deviceTestType": "SELENIUM_NODE",
+    "type": "BROWSER",
+    "executionConfiguration": {
+      "videoCapture": true
+    }
+  },
+  "devices": {},
+  "browsers": {
+    "browserNames": ["chrome"],
+    "platformNames": ["windows"]
+  },
+  "count": 2,
+  "testPackageURI": "path/to/the/test/scripts"
+}

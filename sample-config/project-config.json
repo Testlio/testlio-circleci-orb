@@ -1,0 +1,8 @@
+{
+  "baseURI": "https://api.testlio.com",
+  "platformURI": "https://app.testlio.com/tmt/project/",
+  "projectId": 0,
+  "automatedRunCollectionGuid": "uuid-you-can-find-in-testlio-app",
+  "testRunCollectionGuid": "uuid-you-can-find-in-testlio-app",
+  "workspaceName": "string-identifier"
+}
