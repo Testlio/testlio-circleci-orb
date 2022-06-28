@@ -29,6 +29,7 @@ workflows:
       - copy-sample-configs:
           filters: *filters
       - testlio/schedule-run:
+          dryRun: true
           filters: *filters
           requires:
             - copy-sample-configs
