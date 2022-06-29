@@ -1,0 +1,38 @@
+description: >
+  Schedule functional tests via automated run on Testlio platform.
+  In this example, we are assuming that the tests are not part of the same codebase
+  and we need to get them from somewhere else.
+usage:
+  version: 2.1
+  orbs:
+    testlio: testlio/testlio@1.0.1
+  workflows:
+    schedule-run-for-a-project:
+      jobs:
+        - fetch-functional-tests
+        - testlio/schedule-run:
+            requires:
+              - fetch-functional-tests
+            attach-workspace: true
+            token: "TESTLIO_RUN_API_TOKEN"
+            test-config: "./functional-tests-folder/test-config.json"
+            project-config: "./functional-tests-folder/project-config.json"
+
+  jobs:
+    fetch-functional-tests:
+      docker:
+        - image: cimg/node:lts
+      steps:
+        - run:
+            name: Fetch functional tests
+            command: |
+              # write here the commands to get your functional test scripts and configuration files
+              # for example:
+              wget https://uri/to/your/functional/tests/and/config/files.zip
+              unzip files.zip
+        - persist_to_workspace:
+            root: .
+            paths:
+              - ./functional-tests-folder/project-config.json
+              - ./functional-tests-folder/test-config.json
+              - ./functional-tests-folder/test_package.zip

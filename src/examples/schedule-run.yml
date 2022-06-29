@@ -1,0 +1,14 @@
+description: |
+  Schedule functional tests via automated run on Testlio platform.
+  In this example we are assuming that the tests are part of the same codebase.
+usage:
+  version: 2.1
+  orbs:
+    testlio: testlio/testlio@1.0.1
+  workflows:
+    schedule-run:
+      jobs:
+        - testlio/schedule-run:
+            token: "TESTLIO_RUN_API_TOKEN"
+            test-config: "./functional-tests-folder/test-config.json"
+            project-config: "./functional-tests-folder/project-config.json"

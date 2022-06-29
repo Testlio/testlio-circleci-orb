@@ -16,10 +16,15 @@ parameters:
     default: "./project-config.json"
     description: |
       Specify path to the project config JSON file. Default is "./project-config.json".
+  dryRun:
+    description: when true it runs configuration validations without creating run
+    type: boolean
+    default: false
 steps:
   - run:
       name: Scheduling automated run
       environment:
+        DRY_RUN: << parameters.dryRun >>
         RUN_API_TOKEN_ENV_NAME: << parameters.token >>
         TEST_CONFIG_PATH: << parameters.test-config >>
         PROJECT_CONFIG_PATH: << parameters.project-config >>

@@ -1,11 +1,12 @@
 description: >
-  Clone test project and schedule e2e automated run on Testlio platform.
+  Schedule functional tests via automated run on Testlio platform.
 
-executor: default
+docker:
+  - image: 'cimg/node:lts'
 
 parameters:
   token:
-    type: string
+    type: env_var_name
     default: "TESTLIO_RUN_API_TOKEN"
     description: |
       Enter the name of the environment variable containing the Testlio Run API token to be used for authentication. Default is "TESTLIO_RUN_API_TOKEN".
@@ -24,14 +25,23 @@ parameters:
     default: "./project-config.json"
     description: |
       Specify path to the project config JSON file. Default is "./project-config.json".
+  dryRun:
+    description: when true it runs configuration validations without creating run
+    type: boolean
+    default: false
 steps:
   - when:
       condition: << parameters.attach-workspace >>
       steps:
         - attach_workspace:
             at: ./
+  - unless:
+      condition: << parameters.attach-workspace >>
+      steps:
+        - checkout
   - install
   - create-run:
+      dryRun: << parameters.dryRun >>
       token: << parameters.token >>
       test-config: << parameters.test-config >>
       project-config: << parameters.project-config >>
