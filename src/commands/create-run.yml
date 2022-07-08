@@ -18,6 +18,7 @@ parameters:
       Specify path to the project config JSON file. Default is "./project-config.json".
   test-args:
     type: string
+    default: ""
     description: |
       Pass custom arguments to the test script in order to trigger a particular set of tests
   dry-run:
