@@ -9,7 +9,8 @@ set -o xtrace
 
 export RUN_API_TOKEN=${!RUN_API_TOKEN_ENV_NAME}
 
-[ "$DRY_RUN" -eq 1 ] && export OPTIONAL_ARGS=$OPTIONAL_ARGS --dryRun
-[ -n "$TEST_ARGS" ] && export OPTIONAL_ARGS=$OPTIONAL_ARGS --testArgs "${TEST_ARGS?}"
+OPTIONAL_ARGS=""
+[ "$DRY_RUN" -eq 1 ] && OPTIONAL_ARGS=$OPTIONAL_ARGS --dryRun
+[ -n "$TEST_ARGS" ] && OPTIONAL_ARGS=$OPTIONAL_ARGS --testArgs "${TEST_ARGS}"
 
 testlio create-run --projectConfig "${PROJECT_CONFIG_PATH}" --testConfig "${TEST_CONFIG_PATH}" $OPTIONAL_ARGS
