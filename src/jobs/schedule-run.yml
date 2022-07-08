@@ -25,10 +25,15 @@ parameters:
     default: "./project-config.json"
     description: |
       Specify path to the project config JSON file. Default is "./project-config.json".
-  dryRun:
-    description: when true it runs configuration validations without creating run
+  test-args:
+    type: string
+    description: |
+      Pass custom arguments to the test script in order to trigger a particular set of tests.
+  dry-run:
     type: boolean
     default: false
+    description: |
+      When true it runs configuration validations without creating run.
 steps:
   - when:
       condition: << parameters.attach-workspace >>
@@ -41,7 +46,8 @@ steps:
         - checkout
   - install
   - create-run:
-      dryRun: << parameters.dryRun >>
+      dry-run: << parameters.dry-run >>
       token: << parameters.token >>
       test-config: << parameters.test-config >>
       project-config: << parameters.project-config >>
+      test-args: << parameters.test-args >>
