@@ -29,7 +29,9 @@ parameters:
     type: string
     default: ""
     description: |
-      Pass custom arguments to the test script in order to trigger a particular set of tests.
+      Pass custom arguments to the test script in order to trigger a particular set of tests. 
+      This value will be passed as an environment variable to the test script and can be used as
+      command-line arguments for test execution command. Example: "--spec tests/login-test.ts".
   dry-run:
     type: boolean
     default: false
