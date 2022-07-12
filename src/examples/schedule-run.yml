@@ -12,4 +12,4 @@ usage:
             token: "TESTLIO_RUN_API_TOKEN"
             test-config: "./functional-tests-folder/test-config.json"
             project-config: "./functional-tests-folder/project-config.json"
-            test-args: "--some --test --arguments"
+            test-args: "--spec tests/login-test.ts"
