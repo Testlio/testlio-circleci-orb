@@ -5,7 +5,8 @@
     "deviceTestType": "SELENIUM_NODE",
     "type": "BROWSER",
     "executionConfiguration": {
-      "videoCapture": true
+      "videoCapture": true,
+      "testArgs": "--spec tests/login-test.ts"
     }
   },
   "devices": {},

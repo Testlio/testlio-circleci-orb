@@ -16,16 +16,25 @@ parameters:
     default: "./project-config.json"
     description: |
       Specify path to the project config JSON file. Default is "./project-config.json".
-  dryRun:
-    description: when true it runs configuration validations without creating run
+  test-args:
+    type: string
+    default: ""
+    description: |
+      Pass custom arguments to the test script in order to trigger a particular set of tests.
+      This value will be passed as an environment variable to the test script and can be used as
+      command-line arguments for test execution command. Example: "--spec tests/login-test.ts".
+  dry-run:
     type: boolean
     default: false
+    description: |
+      When true it runs configuration validations without creating run.
 steps:
   - run:
       name: Scheduling automated run
       environment:
-        DRY_RUN: << parameters.dryRun >>
+        DRY_RUN: << parameters.dry-run >>
         RUN_API_TOKEN_ENV_NAME: << parameters.token >>
         TEST_CONFIG_PATH: << parameters.test-config >>
         PROJECT_CONFIG_PATH: << parameters.project-config >>
+        TEST_ARGS: << parameters.test-args >>
       command: << include(scripts/create-run.sh) >>
