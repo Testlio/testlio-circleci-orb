@@ -3,4 +3,6 @@ description: >
 steps:
   - run:
       name: Install Testlio CLI
-      command: "npm install -g @testlio/cli"
+      # https://github.com/CircleCI-Public/cimg-node/pull/270/files
+      # override sudo npm install as required now with cimg/node:lts
+      command: "npm install --prefix=$HOME/.local --global @testlio/cli"
