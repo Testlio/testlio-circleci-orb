@@ -30,6 +30,7 @@ workflows:
           filters: *filters
       - testlio/schedule-run:
           dry-run: true
+          test-args: "--EMAIL=${EMAIL} --PASSWORD=${PASSWORD} --BROWSER=${BROWSER} --ENV_URL=${ENV_URL} --AUTOMATED_RUN_WORKSPACE_URL_CODE=${AUTOMATED_RUN_WORKSPACE_URL_CODE} --spec tests/automated-run/**/*.ts"
           filters: *filters
           requires:
             - copy-sample-configs

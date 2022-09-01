@@ -6,7 +6,7 @@
     "type": "BROWSER",
     "executionConfiguration": {
       "videoCapture": true,
-      "testArgs": "--EMAIL=${EMAIL} --PASSWORD=${PASSWORD} --BROWSER=${BROWSER} --ENV_URL=${ENV_URL} --AUTOMATED_RUN_WORKSPACE_URL_CODE=${AUTOMATED_RUN_WORKSPACE_URL_CODE} --spec tests/automated-run/**/*.ts"
+      "testArgs": "--spec tests/login-test.ts"
     }
   },
   "devices": {},
