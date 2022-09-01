@@ -1,8 +1,9 @@
-#!/bin/bash -eo pipefail
+#!/bin/bash
 set -e
 set -o nounset
 set -o errexit
 set -o xtrace
+set -o pipefail
 
 [ ! -f "${PROJECT_CONFIG_PATH}" ] && echo "Cannot find project config in ${PROJECT_CONFIG_PATH}." && exit
 [ ! -f "${TEST_CONFIG_PATH}" ] && echo "Cannot find test config in ${TEST_CONFIG_PATH}." && exit
