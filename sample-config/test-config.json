@@ -14,6 +14,6 @@
     "browserNames": ["chrome"],
     "platformNames": ["windows"]
   },
-  "count": 2,
+  "select": 2,
   "testPackageURI": "path/to/the/test/scripts"
 }
