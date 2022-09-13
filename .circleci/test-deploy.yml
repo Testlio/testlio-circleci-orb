@@ -30,7 +30,7 @@ workflows:
           filters: *filters
       - testlio/schedule-run:
           dry-run: true
-          test-args: "--spec tests/login-test.ts"
+          test-args: --spec tests/login-test.ts
           filters: *filters
           requires:
             - copy-sample-configs
