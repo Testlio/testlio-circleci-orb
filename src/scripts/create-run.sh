@@ -14,4 +14,4 @@ OPTIONAL_ARGS=()
 [ "$DRY_RUN" -eq 1 ] && OPTIONAL_ARGS+=("--dryRun")
 [ -n "$TEST_ARGS" ] && OPTIONAL_ARGS+=("--testArgs=\"${TEST_ARGS}\"")
 
-testlio create-run --projectConfig "${PROJECT_CONFIG_PATH}" --testConfig "${TEST_CONFIG_PATH}" "${OPTIONAL_ARGS[@]}"
+testlio create-run --projectConfig "${PROJECT_CONFIG_PATH}" --testConfig "${TEST_CONFIG_PATH}" "${OPTIONAL_ARGS[@]+"${OPTIONAL_ARGS[@]}"}"
