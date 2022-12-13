@@ -37,6 +37,11 @@ parameters:
     default: false
     description: |
       When true it runs configuration validations without creating run.
+  poll-results:
+    type: boolean
+    default: false
+    description: |
+      When true, it will keep polling for until a definitive result is returned
 steps:
   - when:
       condition: << parameters.attach-workspace >>
@@ -50,6 +55,7 @@ steps:
   - install
   - create-run:
       dry-run: << parameters.dry-run >>
+      poll-results: << parameters.poll-results >>
       token: << parameters.token >>
       test-config: << parameters.test-config >>
       project-config: << parameters.project-config >>
