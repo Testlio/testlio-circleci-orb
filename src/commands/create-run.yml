@@ -28,11 +28,17 @@ parameters:
     default: false
     description: |
       When true it runs configuration validations without creating run.
+  poll-results:
+    type: boolean
+    default: false
+    description: |
+      When true, it will keep polling for until a definitive result is returned
 steps:
   - run:
       name: Scheduling automated run
       environment:
         DRY_RUN: << parameters.dry-run >>
+        POLL_RESULTS: << parameters.poll-results >>
         RUN_API_TOKEN_ENV_NAME: << parameters.token >>
         TEST_CONFIG_PATH: << parameters.test-config >>
         PROJECT_CONFIG_PATH: << parameters.project-config >>
